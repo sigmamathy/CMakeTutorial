@@ -12,7 +12,7 @@ if %argc%==0 goto run
 if %1==cfg goto config
 if %1==make goto makefile
 if %1==run goto run
-s
+
 :config
 call cmake .. -DGLFW_BUILD_DOCS=OFF -G "Unix Makefiles"
 
