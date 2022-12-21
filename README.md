@@ -7,6 +7,7 @@ For Windows, use `project.bat`:
 
 Or in other operating system:
 
+    mkdir out
     cd out
     cmake .. -DGLFW_BUILD_DOCS=OFF
     make
