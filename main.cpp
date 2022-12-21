@@ -1,10 +1,18 @@
 #include <iostream>
-#include "math.hpp"
+#include <GLFW/glfw3.h>
 
 int main(int argc, char** argv)
 {
-    float x, y, z;
-    std::cin >> x >> y >> z;
-    std::cout << "Area of the triangle: " << mylib::HeronFormula(x, y, z) << '\n';
+    glfwInit();
+    GLFWwindow* window = glfwCreateWindow(1600, 900, "Hello World", nullptr, nullptr);
+    glfwMakeContextCurrent(window);
+
+    while (!glfwWindowShouldClose(window)) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
     return 0;
 }
