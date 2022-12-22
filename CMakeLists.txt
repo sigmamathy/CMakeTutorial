@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.18.0)
 
-project(NewTest)
+project(NewTest VERSION 1.0)
+
+configure_file(NewTestConfig.h.in NewTestConfig.h)
+# Main output
+add_executable(${PROJECT_NAME} main.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
 # Download Git submodules
 find_package(Git QUIET)
@@ -23,8 +28,6 @@ if (NOT EXISTS "${PROJECT_SOURCE_DIR}/external/glfw/CMakeLists.txt")
     message(FATAL_ERROR "The glfw submodule was not download! GIT_SUBMODULE was turned off or failed.")
 endif()
 
-# Main output
-add_executable(${PROJECT_NAME} main.cpp)
 # Add subprojects and external submodules
 add_subdirectory(mylib)
 add_subdirectory(external/glfw)

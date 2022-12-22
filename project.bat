@@ -10,11 +10,13 @@ if %argc%==0 goto run
 
 :: command line options
 if %1==cfg goto config
+if %1==cfnb goto config
 if %1==make goto makefile
 if %1==run goto run
 
 :config
 call cmake .. -DGLFW_BUILD_DOCS=OFF -G "Unix Makefiles"
+if %1==cfnb goto end
 
 :makefile
 call make
